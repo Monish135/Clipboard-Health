@@ -1,5 +1,5 @@
 {
-  "name": "chatbot",
+  "name": "clipboard-health",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "description": "Assessment project for Clipboard Health",
   "dependencies": {
     "body-parser": "^2.2.0",
     "express": "^5.1.0"
@@ -20,6 +21,5 @@
     "axios": "^1.6.7",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
-  },
-  "description": ""
+  }
 }
