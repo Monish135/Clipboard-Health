@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .chatbox { max-width: 600px; margin: 0 auto; }
+    .message { padding: 10px; margin-bottom: 10px; }
+    .user { background-color: #d1e7dd; text-align: right; }
+    .bot { background-color: #f8d7da; }
+  </style>
+</head>
+<body>
+  <div class="chatbox">
+    <div id="chat-output"></div>
+    <input type="text" id="user-input" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const userInput = document.getElementById('user-input').value;
+      if (!userInput) return;
+
+      const chatOutput = document.getElementById('chat-output');
+      chatOutput.innerHTML += `<div class="message user">${userInput}</div>`;
+
+      // Send the user's question to the server
+      fetch('http://localhost:3000/ask', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ query: userInput }),
+      })
+      .then(response => response.json())
+      .then(data => {
+        const botReply = data.answer || 'I didn\'t quite get that. Please ask again.';
+        chatOutput.innerHTML += `<div class="message bot">${botReply}</div>`;
+        document.getElementById('user-input').value = '';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        chatOutput.innerHTML += `<div class="message bot">Sorry, there was an error processing your request.</div>`;
+      });
+    }
+  </script>
+</body>
+</html>
