@@ -1,22 +1,16 @@
 {
   "name": "clipboard-health",
   "version": "1.0.0",
+  "description": "Clipboard Health Assessment Project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "start:topWorkplaces": "ts-node src/scripts/top-workplaces.ts"
+    "start": "ts-node src/scripts/top-workplaces.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "Assessment project for Clipboard Health",
-  "dependencies": {
-    "body-parser": "^2.2.0",
-    "express": "^5.1.0"
-  },
   "devDependencies": {
-    "@types/axios": "^0.14.0",
     "@types/node": "^20.11.24",
     "axios": "^1.6.7",
     "ts-node": "^10.9.2",

@@ -1,12 +1,18 @@
 # Clipboard Health Assessment
 
-This project is an assessment for Clipboard Health, implementing a script to fetch the most active workplaces based on completed shifts.
+This project is a solution for the Clipboard Health assessment task. It implements a script to fetch and process workplace data to find the most active workplaces based on completed shifts.
 
 ## Project Structure
 
-- `src/scripts/top-workplaces.ts`: Main script to fetch and process workplace data
-- `package.json`: Project configuration and dependencies
-- `tsconfig.json`: TypeScript configuration
+```
+.
+├── src/
+│   └── scripts/
+│       └── top-workplaces.ts    # Main script to fetch and process workplace data
+├── package.json                 # Project dependencies and scripts
+├── tsconfig.json               # TypeScript configuration
+└── README.md                   # Project documentation
+```
 
 ## Setup
 
@@ -17,17 +23,18 @@ npm install
 
 2. Run the script:
 ```bash
-npm run start:topWorkplaces
+npm start
 ```
 
 ## Output Format
 
-The script outputs the top 3 workplaces with the most completed shifts in the following format:
+The script outputs the top 3 workplaces by completed shifts in the following JSON format:
+
 ```json
 [
   {
     "name": "Workplace Name",
-    "shifts": 123
+    "shifts": 42
   },
   ...
 ]
@@ -35,6 +42,6 @@ The script outputs the top 3 workplaces with the most completed shifts in the fo
 
 ## Requirements
 
-- Node.js
+- Node.js (v14 or higher)
 - TypeScript
-- Axios for API requests 
+- Axios for HTTP requests 
